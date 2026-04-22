@@ -1,5 +1,3 @@
-# crypto{CRIME_571ll_p4y5}
-
 import requests
 import string
 import time
@@ -12,11 +10,9 @@ def encrypt(plain):
 alphabet = '}'+'!'+'_'+'@'+'?'+string.ascii_uppercase+string.digits+string.ascii_lowercase
 
 def bruteforce():
-    
     flag = b'crypto{'
     cipher = encrypt(flag.hex())
     mi = len(cipher)
-
     while True:
         for c in alphabet:
             cipher = encrypt((flag+c.encode()).hex())
@@ -30,7 +26,6 @@ def bruteforce():
                 mi += 2
                 break
             time.sleep(1)
-
         if flag.endswith(b'}'): 
             print(flag)
             break

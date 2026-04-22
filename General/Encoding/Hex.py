@@ -2,13 +2,10 @@ hex_string = "63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f68
 b = bytes.fromhex(hex_string).decode()
 print(b)
 
-# To convert a text to hexadecimal
 a = "Hello World"
-a_bytes = str.encode(a) # First we have to convert the text to bytes
+a_bytes = str.encode(a) 
 print(a_bytes)
-a_hex = a_bytes.hex() # Then we convert the bytes to hexadecimal
+a_hex = a_bytes.hex() 
 print(a_hex)
-
-# Converting the hexadecimal back to text
-c = bytes.fromhex(a_hex).decode() # decode converts the bytes to text
+c = bytes.fromhex(a_hex).decode() 
 print(c)

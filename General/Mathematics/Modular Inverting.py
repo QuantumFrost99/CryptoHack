@@ -9,4 +9,3 @@ while not ans_found:
         ans_found = True
     else:
         pass
-    

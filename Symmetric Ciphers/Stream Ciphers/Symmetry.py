@@ -1,5 +1,3 @@
-# crypto{0fb_15_5ymm37r1c4l_!!!11!} 
-
 import requests
 import json
 from binascii import *
@@ -24,7 +22,6 @@ def get_encryption(pt_hex,iv_hex):
 
 iv,ct = encrypted_flag()
 pt = b'crypto{'
-
 while 1:
     for i in string.printable:
         e = get_encryption(hexlify(pt+i.encode()).decode(),iv)

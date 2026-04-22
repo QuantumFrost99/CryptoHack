@@ -5,5 +5,3 @@ for key in range(256):
     value = xor(cipher, key)
     if b"crypto" in value:
         print(f"key={key}", value.decode())
-
-

@@ -1,6 +1,5 @@
-# crypto{M1x1n6_r0und5_4r3_1nv3r71bl3!}
-
 from binascii import unhexlify
+
 msg = b'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula.'
 iv1_hex = 'e42758d6d218013ea63e3c49'
 iv2_hex = 'a99f9a7d097daabd2aa2a235'
@@ -29,6 +28,7 @@ def xor(a, b):
 class ChaCha20:
     def __init__(self):
         self._state = []
+
     def _inner_block(self, state):
         self._quarter_round(state, 0, 4, 8, 12)
         self._quarter_round(state, 1, 5, 9, 13)
@@ -38,6 +38,7 @@ class ChaCha20:
         self._quarter_round(state, 1, 6, 11, 12)
         self._quarter_round(state, 2, 7, 8, 13)
         self._quarter_round(state, 3, 4, 9, 14)
+
     def _quarter_round(self, x, a, b, c, d):
         x[a] = word(x[a] + x[b]); x[d] ^= x[a]; x[d] = rotate(x[d], 16)
         x[c] = word(x[c] + x[d]); x[b] ^= x[c]; x[b] = rotate(x[b], 12)
@@ -49,8 +50,10 @@ class ChaCha20:
         self._state.extend(bytes_to_words(key))
         self._state.append(self._counter)
         self._state.extend(bytes_to_words(iv))
+
     def decrypt(self, c, key, iv):
         return self.encrypt(c, key, iv)
+    
     def encrypt(self, m, key, iv):
         c = b''
         self._counter = 1

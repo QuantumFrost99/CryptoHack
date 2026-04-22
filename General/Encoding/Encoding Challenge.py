@@ -5,9 +5,10 @@ import base64
 import codecs
 import sys
 conn=remote('socket.cryptohack.org', 13377, level='debug')
-# line= r.recvline().decode()
-# line_js=json.loads(line)
-# print(line_js)
+line= conn.recvline().decode()
+line_js=json.loads(line)
+print(line_js)
+
 def dec(t,e):
     if t == "base64":
         return base64.b64decode(e).decode()
@@ -31,12 +32,12 @@ def json_send(r):
 while True :
 
     received = json_recv()
-    # print(type(received))
+    
     if "flag" in received:
         print(received["flag"])
         sys.exit(0)
     t = received["type"]
-    # print(t)
+    
     e = received["encoded"]
     to_send = {
         "decoded": dec(t,e)

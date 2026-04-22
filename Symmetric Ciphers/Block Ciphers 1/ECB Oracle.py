@@ -4,9 +4,11 @@ BASE = "http://aes.cryptohack.org/ecb_oracle/encrypt/"
 def encrypt(text):
     r = requests.get(BASE + text.encode().hex())
     return r.json()['ciphertext']
+
 def pad_input(s):
     pad = 'A' * (16 - len(s) % 16)
     return pad + s + pad
+
 def decrypt_flag():
     chars = "abcdefghijklmnopqrstuvwxyz1234567890_{}"
     flag = ""
@@ -23,6 +25,6 @@ def decrypt_flag():
                 break
         if flag.endswith('}'):
             break
+        
 if __name__ == '__main__':
     decrypt_flag()
-

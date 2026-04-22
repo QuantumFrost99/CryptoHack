@@ -1,12 +1,8 @@
-# crypto{Zerologon_Windows_CVE-2020-1472}
-
 from Crypto.Cipher import AES
 from Crypto.Util.number import bytes_to_long
 from os import urandom
 
 FLAG = "crypto{???????????????????????????????}"
-
-
 class CFB8:
     def __init__(self, key):
         self.key = key
@@ -36,7 +32,6 @@ class CFB8:
             state = state[1:] + bytes([ct[i]])
         return pt
 
-
 class Challenge():
     def __init__(self):
         self.before_input = "Please authenticate to this Domain Controller to proceed\n"
@@ -54,11 +49,11 @@ class Challenge():
                 return {'msg': 'Welcome admin, flag: ' + FLAG}
             else:
                 return {'msg': 'Wrong password.'}
-
+            
         if your_input['option'] == 'reset_connection':
             self.cipher = CFB8(urandom(16))
             return {'msg': 'Connection has been reset.'}
-
+        
         if your_input['option'] == 'reset_password':
             if 'token' not in your_input:
                 return {'msg': 'No token provided.'}

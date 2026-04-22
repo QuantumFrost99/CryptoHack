@@ -5,4 +5,3 @@ def findgcd(a, b):
 
 value = findgcd(66528, 52920)
 print(value)
-

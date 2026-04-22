@@ -43,17 +43,7 @@ state = [
     [64, 80, 182, 255],
 ]
 
-# def sub_bytes(s, sbox=s_box):
-#     l1 = sum(s,[])
-#     l2 = []
-#     for i in l1:
-#         l2.append(sbox[i])
-#     for i in l2:
-#         print(chr(i),end="")
-
 def sub_bytes(s, sbox=s_box):
     return bytes(list(map(lambda x: sbox[x], sum(s, [])))).decode()
 
 print(sub_bytes(state, sbox=inv_s_box))
-
-

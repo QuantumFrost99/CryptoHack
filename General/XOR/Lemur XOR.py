@@ -1,7 +1,7 @@
 import cv2
 
 flag = cv2.imread("D:\\Cryptography\\Crypto Hack\\XOR\\flag.png")
-lemur = cv2.imread("D:\\Cryptography\\Crypto Hack\\XOR\\lemur.png") # Download the images to Run
+lemur = cv2.imread("D:\\Cryptography\\Crypto Hack\\XOR\\lemur.png") 
 
 value = cv2.bitwise_xor(flag,lemur)
 cv2.imshow('ez',value)
