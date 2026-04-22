@@ -9,9 +9,7 @@ xored = bytes(
     for i in range(len(data))
 )
 print(xored.decode())
-
 flag = "crypto{"
 nflag = flag.encode("utf-8")
-
 fkey = xor(data[6],nflag[6])
 print(fkey)

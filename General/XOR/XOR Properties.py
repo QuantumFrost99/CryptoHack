@@ -11,9 +11,7 @@ key5 = "679ce12554e557ada0e38f2e52f126e54240b2576c83c4196cd2"
 
 pairs = [key5[i:i+2] for i in range(0,len(key5),2)]
 pairs2 = [value3[i:i+2] for i in range(0,len(value3),2)]
-
 flag_list = [format(int(pairs[i],16) ^ int(pairs2[i],16),"02x") for i in range(0,26)]
 flag = "".join(flag_list)
-
 flag_text = bytes.fromhex(flag).decode()
 print(flag_text)
